@@ -1,0 +1,12 @@
+<form #f="ngForm">
+  <div class="form-group">
+    <input class="form-control" ngModel required type="text" id="newList" name="newList" #newList="ngModel"/>
+    <button (click)="createList(newList)" type="submit">Create new list</button>
+  </div>
+</form>
+
+<div class="columns">
+  <div class="list" *ngFor="let list of lists">
+    {{list}}
+  </div>
+</div>
