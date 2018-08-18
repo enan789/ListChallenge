@@ -24,4 +24,8 @@ export class ListCreationComponent implements OnInit {
     this.lists.push(name.controls.newList.value)
   }
 
+  deleteList(id: number): void {
+    this.lists.splice(id, 1);
+  }
+
 }

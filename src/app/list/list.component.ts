@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ListItemComponent } from '../list-item/list-item.component';
+import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ListItemComponent } from '../list-item/list-item.component';
 
 @Component({
   selector: 'app-list',
@@ -10,14 +10,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class ListComponent implements OnInit {
 
   @Input() title: string;
+  @Input() id: number;
 
-  itemForm = {}
+  @Output() delList = new EventEmitter<number>();
 
-  constructor() {
-    this.itemForm = new FormGroup({
-      newItem: new FormControl('', [Validators.required])
-    });
-  }
+  itemForm = new FormGroup({
+    newItem: new FormControl('', [Validators.required])
+  });
 
   ngOnInit() {
   }
@@ -25,8 +24,16 @@ export class ListComponent implements OnInit {
   items = []
 
   addItem(item: FormGroup): void {
-    console.log(item)
-    this.items.push(item.controls.newItem.value)
+    this.items.push(item.controls.newItem.value);
   }
+
+  deleteItem(id: number): void {
+    this.items.splice(id, 1);
+  }
+
+  onDeleteList(id:number): void {
+    this.delList.emit(this.id);
+  }
+
 
 }
