@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ListItemComponent } from '../list-item/list-item.component';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-list',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  @Input() title: string;
+
+  itemForm = {}
+
+  constructor() {
+    this.itemForm = new FormGroup({
+      newItem: new FormControl('', [Validators.required])
+    });
+  }
 
   ngOnInit() {
+  }
+
+  items = []
+
+  addItem(item: FormGroup): void {
+    console.log(item)
+    this.items.push(item.controls.newItem.value)
   }
 
 }

@@ -1,3 +1,14 @@
-<p>
-  list works!
-</p>
+<h3>{{title}}</h3>
+
+<form [formGroup]="itemForm">
+  <div class="form-group">
+    <input type="text" id="newItem" class="form-control" formControlName="newItem"/>
+  </div>
+  <button [disabled]="itemForm.invalid" (click)="addItem(itemForm)" type="submit">Add</button>
+</form>
+
+<ul>
+  <li *ngFor="let item of items; let i = index;">
+    <app-list-item [name]="item" [id]="i"></app-list-item>
+  </li>
+</ul>

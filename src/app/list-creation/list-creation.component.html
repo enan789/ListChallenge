@@ -1,12 +1,13 @@
-<form #f="ngForm">
+<form [formGroup]="listForm">
   <div class="form-group">
-    <input class="form-control" ngModel required type="text" id="newList" name="newList" #newList="ngModel"/>
-    <button (click)="createList(newList)" type="submit">Create new list</button>
+    <input type="text" id="newList" class="form-control" formControlName="newList"/>
   </div>
+  <button [disabled]="listForm.invalid" (click)="createList(listForm)" type="submit">Create new list</button>
 </form>
 
 <div class="columns">
-  <div class="list" *ngFor="let list of lists">
-    {{list}}
+  <div *ngFor="let list of lists">
+    <app-list class="list" [title]="list">
+    </app-list>
   </div>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms'
+import { FormControl, FormGroup, Validators } from '@angular/forms'
+import { ListComponent } from '../list/list.component';
 
 @Component({
   selector: 'app-list-creation',
@@ -8,6 +9,10 @@ import { FormControl } from '@angular/forms'
 })
 export class ListCreationComponent implements OnInit {
 
+  listForm = new FormGroup({
+    newList: new FormControl('', [Validators.required])
+  });
+
   constructor() { }
 
   ngOnInit() {
@@ -15,9 +20,8 @@ export class ListCreationComponent implements OnInit {
 
   lists =[]
 
-  createList(name: FormControl): void {
-    this.lists.push(name.value);
-    console.log(name);
+  createList(name: FormGroup): void {
+    this.lists.push(name.controls.newList.value)
   }
 
 }
