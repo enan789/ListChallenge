@@ -10,7 +10,7 @@ import { ListComponent } from '../list/list.component';
 export class ListCreationComponent implements OnInit {
 
   listForm = new FormGroup({
-    newList: new FormControl('', [Validators.required])
+    newList: new FormControl('', [Validators.required, Validators.maxLength(30)])
   });
 
   constructor() { }

@@ -15,13 +15,13 @@ export class ListComponent implements OnInit {
   @Output() delList = new EventEmitter<number>();
 
   itemForm = new FormGroup({
-    newItem: new FormControl('', [Validators.required])
+    newItem: new FormControl('', [Validators.required, Validators.maxLength(30)])
   });
+
+  items = []
 
   ngOnInit() {
   }
-
-  items = []
 
   addItem(item: FormGroup): void {
     this.items.push(item.controls.newItem.value);

@@ -1,11 +1,16 @@
-<div>
+<div class="item-block">
   <div>
     {{name}}
   </div>
-  <div>
-    {{id}}
+  <div class="contentRight">
+    <div>
+      {{id}}
+    </div>
+    <p><span class="glyphicon glyphicon-arrow-up"></span></p>
+    <i class="fa fa-arrow-up"></i>
+    <i class="fa fa-arrow-down"></i>
+    <button type="button" class="close" aria-label="Close" (click)="onDeleteItem()">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
-  <button type="button" class="close" aria-label="Close" (click)="onDeleteItem()">
-    <span aria-hidden="true">&times;</span>
-  </button>
 </div>

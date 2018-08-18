@@ -6,3 +6,11 @@
   margin-left: 10px;
   margin-right: 10px;
 }
+.list-generator{
+  padding: 10px;
+}
+.resize-width{
+  width: 50%;
+  margin-left:auto;
+  margin-right: auto;
+}

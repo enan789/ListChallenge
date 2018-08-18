@@ -1,15 +1,15 @@
-<div class="list-head">
+<div class="list-head text-center">
   <h3>{{title}}</h3>
   <button type="button" class="close" aria-label="Close" (click)="onDeleteList()">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
 
-<form [formGroup]="itemForm">
+<form [formGroup]="itemForm" class="text-center">
   <div class="form-group">
     <input type="text" id="newItem" class="form-control" formControlName="newItem"/>
   </div>
-  <button [disabled]="itemForm.invalid" (click)="addItem(itemForm)" type="submit">Add</button>
+  <button [disabled]="itemForm.invalid" (click)="addItem(itemForm)" type="submit" class="btn btn-primary">Add Item</button>
 </form>
 
 <ul>

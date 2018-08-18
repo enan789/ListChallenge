@@ -11,6 +11,7 @@ export class ListItemComponent implements OnInit {
   @Input() id: number;
 
   @Output() delItem = new EventEmitter<number>();
+  @Output() up = new EventEmitter<boolean>();
 
   constructor() { }
 
@@ -21,5 +22,11 @@ export class ListItemComponent implements OnInit {
     this.delItem.emit(this.id);
   }
 
+  moveItemUp(): void {
+    this.up.emit(true);
+  }
 
+  moveItemDown(): void {
+    this.up.emit(false);
+  }
 }

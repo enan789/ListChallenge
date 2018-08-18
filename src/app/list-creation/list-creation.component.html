@@ -1,9 +1,9 @@
 <div class="list-generator">
-  <form [formGroup]="listForm">
+  <form class="container text-center" [formGroup]="listForm">
     <div class="form-group">
-      <input type="text" id="newList" class="form-control" formControlName="newList"/>
+      <input type="text" id="newList" class="form-control text-center resize-width" formControlName="newList"/>
     </div>
-    <button [disabled]="listForm.invalid" (click)="createList(listForm)" type="submit">Create new list</button>
+    <button [disabled]="listForm.invalid" (click)="createList(listForm)" type="submit" class="btn btn-primary">Create new list</button>
   </form>
 
   <div class="columns">

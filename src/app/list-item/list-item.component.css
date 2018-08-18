@@ -1,0 +1,9 @@
+.item-block{
+  display: flex;
+  flex-direction: row;
+}
+.contentRight{
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+}
