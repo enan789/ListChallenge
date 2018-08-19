@@ -14,6 +14,6 @@
 
 <ul>
   <li *ngFor="let item of items; let i = index;">
-    <app-list-item [name]="item" [id]="i" (delete)=deleteItem($event)></app-list-item>
+    <app-list-item [name]="item" [id]="i" (delete)=deleteItem($event) (move)="moveItem($event)"></app-list-item>
   </li>
 </ul>

@@ -1,32 +1,38 @@
-import { Component, Input, EventEmitter, Output, OnInit } from '@angular/core';
+import { Component, Input, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-list-item',
   templateUrl: './list-item.component.html',
   styleUrls: ['./list-item.component.css']
 })
-export class ListItemComponent implements OnInit {
+export class ListItemComponent {
 
+  //Inputs for the lists name and id
   @Input() name: string;
   @Input() id: number;
 
+  //Outputs of the deleteItem with the item's index and move with the item's id
   @Output() delItem = new EventEmitter<number>();
-  @Output() up = new EventEmitter<boolean>();
+  @Output() move = new EventEmitter<any>();
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  //Emits the deleted item id
   onDeleteItem(): void {
     this.delItem.emit(this.id);
   }
 
+  //Emits an up moving item's id
   moveItemUp(): void {
-    this.up.emit(true);
+    this.move.emit({
+      up: true,
+      id: this.id
+    });
   }
 
+  //Emits a down moving item's id
   moveItemDown(): void {
-    this.up.emit(false);
+    this.move.emit({
+      up: false,
+      id: this.id
+    });
   }
 }

@@ -9,6 +9,8 @@ import { ListComponent } from '../list/list.component';
 })
 export class ListCreationComponent implements OnInit {
 
+  //Makes the reactive list form require an input and limit the length to 30
+  //and allows the submit button to be disabled
   listForm = new FormGroup({
     newList: new FormControl('', [Validators.required, Validators.maxLength(30)])
   });
@@ -18,12 +20,15 @@ export class ListCreationComponent implements OnInit {
   ngOnInit() {
   }
 
-  lists =[]
+  //Contains an array of lists and allows the creation of default lists
+  lists =['Example List']
 
+  //Creates a list taking in the the title
   createList(name: FormGroup): void {
     this.lists.push(name.controls.newList.value)
   }
 
+  //Deletes the list based on id
   deleteList(id: number): void {
     this.lists.splice(id, 1);
   }
