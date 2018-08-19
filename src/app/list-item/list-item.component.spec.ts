@@ -22,4 +22,26 @@ describe('ListItemComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should emit delete item event', () => {
+    component.delItem.subscribe(g => {
+      expect(g).toEqual(0);
+    });
+    component.onDeleteItem();
+  });
+
+  it('should emit move item up event', () => {
+    component.delItem.subscribe(g => {
+      expect(g).toEqual({up:true, id:0});
+    });
+    component.moveItemUp();
+  });
+
+  it('should emit delete item event', () => {
+    component.delItem.subscribe(g => {
+      expect(g).toEqual({up:false, id:0});
+    });
+    component.moveItemDown();
+  });
+
 });

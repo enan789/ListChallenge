@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ListCreationComponent } from './list-creation/list-creation.component';
 
 @Component({
   selector: 'app-root',

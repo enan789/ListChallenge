@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms'
+import { ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ListComponent } from '../list/list.component';
 
 @Component({
@@ -11,7 +11,7 @@ export class ListCreationComponent implements OnInit {
 
   //Makes the reactive list form require an input and limit the length to 20
   //and allows the submit button to be disabled
-  listForm = new FormGroup({
+  form = new FormGroup({
     newList: new FormControl('', [Validators.required, Validators.maxLength(20)])
   });
 
@@ -24,8 +24,8 @@ export class ListCreationComponent implements OnInit {
   lists =['Example List']
 
   //Creates a list taking in the the title
-  createList(name: FormGroup): void {
-    this.lists.push(name.controls.newList.value)
+  createList(name: string): void {
+    this.lists.push(name)
   }
 
   //Deletes the list based on id

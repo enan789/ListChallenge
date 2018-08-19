@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule }  from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -13,10 +14,11 @@ import { ListItemComponent } from './list-item/list-item.component';
     AppComponent,
     ListCreationComponent,
     ListComponent,
-    ListItemComponent
+    ListItemComponent,
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     FormsModule,
     ReactiveFormsModule
   ],

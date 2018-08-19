@@ -5,11 +5,11 @@
   </button>
 </div>
 
-<form [formGroup]="itemForm" class="text-center">
+<form [formGroup]="form" class="text-center">
   <div class="form-group">
     <input type="text" id="newItem" class="form-control" formControlName="newItem"/>
   </div>
-  <button [disabled]="itemForm.invalid" (click)="addItem(itemForm)" type="submit" class="btn btn-primary">Add Item</button>
+  <button [disabled]="form.invalid" (click)="addItem(form.controls.newItem.value)" type="submit" class="btn btn-primary">Add Item</button>
 </form>
 
 <ul>

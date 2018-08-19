@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
+import {  ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ListItemComponent } from '../list-item/list-item.component';
 
 @Component({
@@ -7,7 +7,7 @@ import { ListItemComponent } from '../list-item/list-item.component';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
-export class ListComponent {
+export class ListComponent implements OnInit {
 
   //Creates input of the title and index of a list
   @Input() title: string;
@@ -16,18 +16,23 @@ export class ListComponent {
   //Outputs the delete item event
   @Output() delList = new EventEmitter<number>();
 
+  //Contains the items in the list
+  items = [];
+
+  //Initializes and allows for default items
+  ngOnInit() {
+    this.items = ['Example Item'];
+  }
+
   //Makes the reactive item form require an input and limit the length to 20
   //and allows the submit button to be disabled
-  itemForm = new FormGroup({
+  form = new FormGroup({
     newItem: new FormControl('', [Validators.required, Validators.maxLength(20)])
   });
 
-  //Contains the items in the list and allows for default items
-  items = ['Example Item'];
-
   //Creates a new item using the name submitted
-  addItem(item: FormGroup): void {
-    this.items.push(item.controls.newItem.value);
+  addItem(item: string): void {
+    this.items.push(item);
   }
 
   //Deletes an item based on the id
