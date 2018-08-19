@@ -16,10 +16,10 @@ export class ListComponent {
   //Outputs the delete item event
   @Output() delList = new EventEmitter<number>();
 
-  //Makes the reactive item form require an input and limit the length to 30
+  //Makes the reactive item form require an input and limit the length to 20
   //and allows the submit button to be disabled
   itemForm = new FormGroup({
-    newItem: new FormControl('', [Validators.required, Validators.maxLength(30)])
+    newItem: new FormControl('', [Validators.required, Validators.maxLength(20)])
   });
 
   //Contains the items in the list and allows for default items
