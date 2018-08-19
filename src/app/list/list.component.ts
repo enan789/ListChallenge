@@ -19,7 +19,9 @@ export class ListComponent implements OnInit {
   //Contains the items in the list
   items = [];
 
-  //Initializes and allows for default items
+  constructor() { }
+
+  //Creates a default for the items in a lists
   ngOnInit() {
     this.items = ['Example Item'];
   }

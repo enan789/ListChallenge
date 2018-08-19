@@ -15,13 +15,15 @@ export class ListCreationComponent implements OnInit {
     newList: new FormControl('', [Validators.required, Validators.maxLength(20)])
   });
 
+  //Contains the array of lists
+  lists =[]
+
+  //Creates a default for the lists
   constructor() { }
 
   ngOnInit() {
+    this.lists = ['Example List']
   }
-
-  //Contains an array of lists and allows the creation of default lists
-  lists =['Example List']
 
   //Creates a list taking in the the title
   createList(name: string): void {
