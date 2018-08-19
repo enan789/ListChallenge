@@ -82,7 +82,7 @@ describe('ListComponent', () => {
       expect(component.items[1]).toEqual('Example Item');
     });
 
-    it('move item up', () => {
+    it('move item down', () => {
       expect(component.items[1]).toEqual('Example Item 2');
       expect(component.items[2]).toEqual('Example Item 3');
       component.moveItem({up: false, id: 1});

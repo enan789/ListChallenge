@@ -16,7 +16,6 @@ export class ListItemComponent implements OnInit {
   @Output() move = new EventEmitter<any>();
 
   ngOnInit() {
-    this.name = 'Item';
     this.id = 0;
   }
 
